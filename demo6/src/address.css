@@ -1,0 +1,15 @@
+h3 {
+    color: violet;
+}
+
+ul {
+    color: blueviolet;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+p {
+    color: blueviolet;
+    font-size: 20px;
+    margin-left: 35px;
+}
