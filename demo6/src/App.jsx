@@ -17,7 +17,7 @@ function App() {
       <EducationalDetails firstName={name} />
       <LocationDetails currentLocation={"Kakkanad"} permenantLocation={"Cherthala"} />
       <Random />
-      <Counter/>
+      <Counter />
     </>
   )
 }
