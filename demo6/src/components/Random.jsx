@@ -14,7 +14,7 @@ export default class Random extends Component {
     render() {
         return (
             <>
-                <h3 style={{ color: "green" }}>MY CAR NAME</h3>
+                <h3 style={{ color: "skyblue" }}>MY CAR NAME</h3>
                 <p>Car: {this.state.carName}</p>
                 <button type="button" onClick={() => this.changeCar("Swift")}>Change Car</button>
             </>
