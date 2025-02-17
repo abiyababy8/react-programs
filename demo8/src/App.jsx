@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Register from "./components/Register"
 
 function App() {
   const [uname,setUname]=useState('')
@@ -15,6 +16,7 @@ function App() {
         <input type="text" placeholder="Enter your username" style={{ padding: '10px', marginLeft: '10px', width: '250px', borderRadius: '5px' }} onChange={(e)=>setUname(e.target.value)}/>
         <input type="submit" style={{ backgroundColor: 'blue', padding: '10px', marginLeft: '10px', color: 'white' }} value={'Login'} />
       </form>
+      <Register/>
     </>
   )
 }
