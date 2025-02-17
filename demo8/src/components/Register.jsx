@@ -17,7 +17,6 @@ function Register() {
         // const {key}=object_name
 
         const { name, value } = e.target;
-        console.log(name, value)
         setUserData({ ...userData, [name]: value })
     }
     return (
@@ -37,11 +36,10 @@ function Register() {
                 </div>
                 <div style={{ marginTop: '20px' }}>
                     <label htmlFor="" style={{ fontSize: '20px' }}>Course</label>
-                    <select name="" id="" style={{ marginLeft: '20px' }}>
-                        <option value="">CSE</option>
-                        <option value="">CE</option>
-                        <option value="">ME</option>
-                        <option value="">EEE</option>
+                    <select  id="" style={{ marginLeft: '20px' }}>
+                        <option value="CE">CE</option>
+                        <option value="ME">ME</option>
+                        <option value="EEE">EEE</option>
                     </select>
                     <div>
                         <input type="submit" style={{ backgroundColor: 'blue', padding: '10px', marginLeft: '10px', color: 'white', marginTop: '20px' }} value={'Register'} />
