@@ -18,6 +18,7 @@ function Register() {
 
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value })
+        
     }
     return (
         <>
