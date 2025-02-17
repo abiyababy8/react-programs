@@ -1,4 +1,5 @@
 import Colors from "./components/Colors"
+import EmployeeDetails from "./components/EmployeeDetails"
 import Example from "./components/Example"
 import UserDetails from "./components/UserDetails"
 
@@ -9,6 +10,7 @@ function App() {
      <Example/>
      <Colors/>
      <UserDetails/>
+     <EmployeeDetails/>
     </>
   )
 }
