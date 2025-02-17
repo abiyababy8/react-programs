@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 function Register() {
     const [userData, setUserData] = useState(
@@ -9,16 +9,16 @@ function Register() {
     const RegisterUser = (e) => {
         e.preventDefault()
         console.log('Inside RegisterUser function')
-        
+
         console.log(userData)
     }
     const getUserData = (e) => {
         // object destructuring
         // const {key}=object_name
-       
-        const {name, value} = e.target;
+
+        const { name, value } = e.target;
         console.log(name, value)
-        setUserData({...userData,[ name ]:value})
+        setUserData({ ...userData, [name]: value })
     }
     return (
         <>
