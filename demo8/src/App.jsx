@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Register from "./components/Register"
 import SimpleForm from "./components/SimpleForm"
+import FormObject from "./components/FormObject"
 
 function App() {
   const [uname, setUname] = useState('')
@@ -18,6 +19,7 @@ function App() {
         <input type="submit" value={'Login'} style={{ backgroundColor: 'blue', padding: '10px', marginLeft: '10px', color: 'white' }} />
       </form>
       <SimpleForm/>
+      <FormObject/>
       <Register />
     </>
   )

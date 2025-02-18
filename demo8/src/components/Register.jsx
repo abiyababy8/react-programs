@@ -43,7 +43,7 @@ function Register() {
                         <option value="EEE">EEE</option>
                     </select>
                     <div>
-                        <input type="submit" style={{ backgroundColor: 'blue', padding: '10px', marginLeft: '10px', color: 'white', marginTop: '20px' }} value={'Register'} />
+                        <input type="submit" style={{ backgroundColor: 'blue', padding: '10px', marginLeft: '299px', color: 'white', marginTop: '20px' }} value={'Register'} />
                     </div>
 
                 </div>
