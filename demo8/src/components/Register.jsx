@@ -10,7 +10,7 @@ function Register() {
     )
     const RegisterUser = (e) => {
         e.preventDefault()
-        
+
     }
     const getUserData = (e) => {
         console.log(e.target.value)
@@ -20,8 +20,8 @@ function Register() {
         <>
             <h2 style={{ color: 'blue' }}>Registration Form</h2>
             <form onSubmit={RegisterUser}>
-                <label htmlFor=""style={{ fontSize: '20px' }}>First Name:</label>
-                <input type="text" onChange={(e) => getUserData(e)}  style={{ padding: '10px', marginLeft: '10px', width: '250px', borderRadius: '5px' }} placeholder='Enter your First Name' name='uname' />
+                <label htmlFor="" style={{ fontSize: '20px' }}>First Name:</label>
+                <input type="text" onChange={(e) => getUserData(e)} style={{ padding: '10px', marginLeft: '10px', width: '250px', borderRadius: '5px' }} placeholder='Enter your First Name' name='uname' />
                 <div style={{ marginTop: '20px' }}>
                     <label htmlFor="" style={{ fontSize: '20px' }}>Gender:</label>
                     <input type="radio" name='ugender' style={{ marginLeft: '20px' }} />
