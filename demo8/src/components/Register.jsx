@@ -28,11 +28,11 @@ function Register() {
                 <input type="text" style={{ padding: '10px', marginLeft: '10px', width: '250px', borderRadius: '5px' }} placeholder='Enter your First Name' name='uname' onChange={(e) => getUserData(e)} />
                 <div style={{ marginTop: '20px' }}>
                     <label htmlFor="" style={{ fontSize: '20px' }}>Gender</label>
-                    <input type="radio" name='gender' style={{ marginLeft: '20px' }} />
+                    <input type="radio" name='ugender' style={{ marginLeft: '20px' }} />
                     <label htmlFor="">Male</label>
-                    <input type="radio" name='gender' />
+                    <input type="radio" name='ugender'/>
                     <label htmlFor="">Female</label>
-                    <input type="radio" name='gender' />
+                    <input type="radio" name='ugender'/>
                     <label htmlFor="">Other</label>
                 </div>
                 <div style={{ marginTop: '20px' }}>
