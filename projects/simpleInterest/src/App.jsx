@@ -1,3 +1,4 @@
+import TextField from '@mui/material/TextField';
 function App() {
 
   return (
@@ -10,6 +11,17 @@ function App() {
             <h2 className="fw-bold">₹ 4000</h2>
             <p className="fw-bold">Total Simple Interest</p>
           </div>
+          <form action="" className='mt-4'>
+            <div className='mb-3'>
+            <TextField id="outlined-basic" label="Principle" variant="outlined" className='w-100'/>
+            </div>
+            <div className='mb-3'>
+            <TextField id="outlined-basic" label="Rate of Interest" variant="outlined" className='w-100'/>
+            </div>
+            <div className='mb-3'>
+            <TextField id="outlined-basic" label="Number of Years" variant="outlined" className='w-100'/>
+            </div>
+          </form>
         </div>
       </div>
     </>
