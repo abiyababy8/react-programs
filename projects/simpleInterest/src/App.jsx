@@ -59,12 +59,24 @@ function App() {
           <form action="" className='mt-4'>
             <div className='mb-3'>
               <TextField id="outlined-basic" label="Principle" variant="outlined" className='w-100' name='principle_amount' onChange={(e) => validate(e)} />
+              {
+                !isPrincipleValid &&
+                <p style={{ color: 'red' }}>Invalid input</p>
+              }
             </div>
             <div className='mb-3'>
               <TextField id="outlined-basic" label="Rate of Interest" variant="outlined" className='w-100' name='rate_of_interest' onChange={(e) => validate(e)} />
+              {
+                !isRateValid &&
+                <p style={{ color: 'red' }}>Invalid input</p>
+              }
             </div>
             <div className='mb-3'>
               <TextField id="outlined-basic" label="Number of Years" variant="outlined" className='w-100' name='num_of_years' onChange={(e) => validate(e)} />
+              {
+                !isYearValid &&
+                <p style={{ color: 'red' }}>Invalid input</p>
+              }
             </div>
             <div className='d-flex justify-content-between mb-3'>
               <Button variant="contained" color='success' style={{ width: '190px', padding: '10px' }} disabled={!isPrincipleValid || !isRateValid || !isYearValid} >Calculate</Button>
