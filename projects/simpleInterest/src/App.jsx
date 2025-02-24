@@ -16,7 +16,7 @@ function App() {
     const input_field = e.target.name;
     const input_value = e.target.value;
     console.log(input_field, input_value)
-    if (!!input_value.match(/^[0-9]*$/)) {
+    if (!!input_value.match(/^[1-9][0-9]*$/)) {
       console.log('Input is valid')
       if (input_field === 'principle_amount') {
         setIsPrincipleValid(true)
