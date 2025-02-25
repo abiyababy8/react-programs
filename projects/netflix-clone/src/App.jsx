@@ -15,9 +15,7 @@ function App() {
       <Row title={'Horror Movies'}/>
       <Row title={'Romance Movies'}/>
       <Row title={'Documentaries'}/>
-     
     </>
   )
 }
-
 export default App
