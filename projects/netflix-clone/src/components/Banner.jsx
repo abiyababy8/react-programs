@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import instance from '../instance'
-import'./banner.css'
+import './banner.css'
 
 function Banner({ fetchurl }) {
-  console.log(fetchurl)
+  // console.log(fetchurl)
   const image_base_url = "https://image.tmdb.org/t/p/original/";
   const [movies, setmovies] = useState({})
   const fetchData = async () => {
@@ -12,17 +12,19 @@ function Banner({ fetchurl }) {
     setmovies(res)
   }
   useEffect(() => {
-    setInterval(() => {
-      fetchData()
-    }, 5000);
+    // setInterval(() => {
+    //   fetchData()
+    // }, 5000);
+    fetchData()
   }, [])
   return (
     <>
-      <div style={{ backgroundImage: `url(${image_base_url}${movies?.backdrop_path})`, height: '500px', backgroundSize: '100% 100%' }}>
+      <div style={{ backgroundImage: `url(${image_base_url}${movies?.backdrop_path})`, height: '500px', backgroundSize: '100% 100%',backgroundAttachment:'fixed' }}>
         <div className='banner_content'>
           <h2 style={{ color: 'white' }}>{movies?.name}</h2>
           <button className='btn btn-danger'>Play <i className="fa-solid fa-play ms-2"></i></button>
           <button className='btn btn-outline-light ms-2'>More Info <i className="fa-solid fa-caret-down ms-2"></i></button>
+          <p className='mt-3 text-light'>{movies?.overview?.slice(0, 200)}...</p>
         </div>
       </div>
     </>
