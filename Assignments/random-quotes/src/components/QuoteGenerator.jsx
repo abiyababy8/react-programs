@@ -51,7 +51,7 @@ function QuoteGenerator() {
                 </div>
             </div>
             <div className='btn-generate'>
-                <button className='btn btn-success mt-3' onClick={generateQuote}>Next Quote</button>
+                <button className='btn btn-success mt-1' onClick={generateQuote}>Next Quote</button>
             </div>
         </div>
      
