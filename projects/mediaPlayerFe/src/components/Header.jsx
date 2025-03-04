@@ -9,7 +9,7 @@ function Header() {
         <Container>
           <Navbar.Brand>
           <Link to={'/'} style={{textDecoration:'none'}}>
-          <i class="fa-solid fa-video text-warning me-3 fa-beat"></i>
+          <i className="fa-solid fa-video text-warning me-3 fa-beat"></i>
           <span style={{color:'white'}}>MEDIA PLAYER</span></Link>
           </Navbar.Brand>
         </Container>

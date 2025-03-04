@@ -6,7 +6,7 @@ function Footer() {
     <div className='d-flex justify-content-center align-items-center mt-5 bg-dark'>
        <div className='d-flex align-items-center justify-content-evenly'>
          <div className='overview' style={{width:'400px'}}>
-          <h5><i class="fa-solid fa-video text-warning me-3"></i>
+          <h5><i className="fa-solid fa-video text-warning me-3"></i>
           <span style={{color:'white'}}>MEDIA PLAYER</span></h5>
           <p style={{color:'white',textAlign:'justify'}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident deleniti velit eligendi voluptatum ipsum quia assumenda nemo nisi ipsam, voluptas unde maiores. Quam veniam repudiandae cumque voluptas tenetur nostrum repellat.</p>
          </div>
@@ -33,10 +33,10 @@ function Footer() {
             <button className='btn btn-warning ms-3'>SUBSCRIBE</button>
           </div>
           <div className='d-flex justify-content-evenly align-items-center mt-3'>
-          <i class="fa-brands fa-instagram fa-2x"></i>
-          <i class="fa-brands fa-facebook fa-2x"></i>
-          <i class="fa-brands fa-whatsapp fa-2x"></i>
-          <i class="fa-brands fa-x-twitter fa-2x"></i>
+          <i className="fa-brands fa-instagram fa-2x"></i>
+          <i className="fa-brands fa-facebook fa-2x"></i>
+          <i className="fa-brands fa-whatsapp fa-2x"></i>
+          <i className="fa-brands fa-x-twitter fa-2x"></i>
           </div>
          </div>
        </div>
