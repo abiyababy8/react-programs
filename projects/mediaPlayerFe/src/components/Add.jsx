@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Form } from 'react-bootstrap'
 function Add() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -17,19 +17,30 @@ function Add() {
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
+                data-bs-theme='dark'
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                <Modal.Header closeButton className='bg-dark'>
+                    <Modal.Title className='textStyle'><i className="fa-solid fa-film text-warning me-2"></i>Upload Video</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    I will not close if you click outside me. Do not even try to press
-                    escape key.
+                <Modal.Body className='bg-dark text-light'>
+                    <p className='textStyle fw-bolder'>PLEASE FILL THE FORM</p>
+                    <Form className='border border-secondary p-3 rounded'>
+                        <Form.Group className='mb-3 mt-3'>
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Title" />
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Thumbnail URL" />
+                        </Form.Group>
+                        <Form.Group className='mb-3'>
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Link" />
+                        </Form.Group>
+                    </Form>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className='bg-dark'>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Cancel
                     </Button>
-                    <Button variant="primary">Understood</Button>
+                    <Button variant="warning">Upload</Button>
                 </Modal.Footer>
             </Modal>
         </>
