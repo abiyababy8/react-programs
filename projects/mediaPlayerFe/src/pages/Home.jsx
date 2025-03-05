@@ -17,10 +17,10 @@ function Home() {
       <div className='container-fluid mt-5 textStyle w-100 mb-5 '>
         <div className='row'>
           <div className='col-md-9'>
-            <View/>
+            <View />
           </div>
           <div className="col-md-3">
-            <Category/>
+            <Category />
           </div>
         </div>
 
