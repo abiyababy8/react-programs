@@ -1,29 +1,49 @@
-
-.index,.des{
+.index,
+.des {
   background-color: black;
-  text-align:center;
+  text-align: center;
   font-size: larger;
-  height: 100vh;
+  height: 17vh;
   background-size: cover;
   color: white;
   justify-content: center;
   align-content: center;
   background-attachment: fixed;
 }
-.usa{
+
+.about {
+  background-color: black;
+  text-align: center;
+  font-size: larger;
+  height: 80vh;
+  background-size: cover;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  background-attachment: fixed;
+}
+
+.usa {
   background-image: url('https://www.fodors.com/wp-content/uploads/2018/09/Hero_GrandCanyon101_Hero_shutterstock_197685827.jpg');
 }
-.nepal{
+
+.nepal {
   background-image: url('https://www.factinate.com/wp-content/uploads/2018/01/17-37.jpg');
   background-position: center;
 }
-.artic{
-background-image: url('https://cdn.mos.cms.futurecdn.net/qgPxZzRrRCZ5FTN92KYbbZ.jpg');
+
+.artic {
+  background-image: url('https://cdn.mos.cms.futurecdn.net/qgPxZzRrRCZ5FTN92KYbbZ.jpg');
 }
-.aus{
-background-image: url('https://cdn.zmescience.com/wp-content/uploads/2017/11/Great_barrier_reef.jpg');
+
+.aus {
+  background-image: url('https://cdn.zmescience.com/wp-content/uploads/2017/11/Great_barrier_reef.jpg');
 }
-.usa,.aus,.nepal,.artic{
+
+.usa,
+.aus,
+.nepal,
+.artic {
   height: 100vh;
   background-size: cover;
   color: white;
@@ -31,9 +51,12 @@ background-image: url('https://cdn.zmescience.com/wp-content/uploads/2017/11/Gre
   align-content: center;
   background-attachment: fixed;
 }
+
 footer {
   background-color: #222;
   color: #fff;
+  bottom: 0;
+  position: sticky;
 }
 
 .footer-container {
@@ -43,7 +66,7 @@ footer {
   text-align: center;
 }
 
-.nav{
+.nav {
   height: 10vh;
   justify-content: right;
   align-content: right;
@@ -51,16 +74,40 @@ footer {
   background-color: #222;
   color: #fff;
   list-style-type: none;
+  top: 0;
+  position: sticky;
 }
-ul{
+
+ul {
   list-style-type: none;
 }
-.nav a{
+
+.nav a {
   text-decoration: none;
   color: #fff;
 }
-.nav a:hover{
+
+.nav a:hover {
   background-color: black;
   border-radius: 15px;
   padding: 10px;
+}
+
+.contact {
+  background-color: black;
+  background-attachment: fixed;
+  color: white;
+  justify-items: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.icons i:hover {
+  background-color: #222;
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+
+.contact button:hover {
+  transform: scale(1.1)
 }

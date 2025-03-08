@@ -6,7 +6,6 @@ function Index() {
         <>
             <div className="index">
                 <h1 className='text-center'>NATURAL WONDERS</h1>
-                <Link to={'/about'}><button className='btn btn-dark'>Learn More..</button></Link>
             </div>
             <div className="usa">
                 <h1 className='text-center text-light'>1. Grand Canyon (USA)</h1>
