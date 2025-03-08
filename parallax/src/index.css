@@ -1,0 +1,66 @@
+
+.index,.des{
+  background-color: black;
+  text-align:center;
+  font-size: larger;
+  height: 100vh;
+  background-size: cover;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  background-attachment: fixed;
+}
+.usa{
+  background-image: url('https://www.fodors.com/wp-content/uploads/2018/09/Hero_GrandCanyon101_Hero_shutterstock_197685827.jpg');
+}
+.nepal{
+  background-image: url('https://www.factinate.com/wp-content/uploads/2018/01/17-37.jpg');
+  background-position: center;
+}
+.artic{
+background-image: url('https://cdn.mos.cms.futurecdn.net/qgPxZzRrRCZ5FTN92KYbbZ.jpg');
+}
+.aus{
+background-image: url('https://cdn.zmescience.com/wp-content/uploads/2017/11/Great_barrier_reef.jpg');
+}
+.usa,.aus,.nepal,.artic{
+  height: 100vh;
+  background-size: cover;
+  color: white;
+  justify-content: center;
+  align-content: center;
+  background-attachment: fixed;
+}
+footer {
+  background-color: #222;
+  color: #fff;
+}
+
+.footer-container {
+  height: 10vh;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.nav{
+  height: 10vh;
+  justify-content: right;
+  align-content: right;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  list-style-type: none;
+}
+ul{
+  list-style-type: none;
+}
+.nav a{
+  text-decoration: none;
+  color: #fff;
+}
+.nav a:hover{
+  background-color: black;
+  border-radius: 15px;
+  padding: 10px;
+}
