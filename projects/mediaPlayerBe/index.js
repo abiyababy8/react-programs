@@ -12,7 +12,7 @@ const router = jsonServer.router('db.json')
 // 4) create a middleware that process request and response
 const middleware = jsonServer.defaults()
 
-// 5) use middleware 
+// 5) use middleware
 mediaPlayerServer.use(middleware)
 
 // 6) use router

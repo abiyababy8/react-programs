@@ -8,7 +8,7 @@ function VideoCard() {
                 <Card.Body>
                     <div className='d-flex justify-content-between'>
                         <Card.Title>Dhurooha Mandhahaasame</Card.Title>
-                        <Button variant="danger"><i class="fa-solid fa-trash"></i></Button>
+                        <Button variant="danger"><i className="fa-solid fa-trash"></i></Button>
                     </div>
                 </Card.Body>
             </Card>

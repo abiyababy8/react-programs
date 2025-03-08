@@ -1,10 +1,39 @@
 import { React, useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
+import { uploadVideo } from '../services/allApi';
 function Add() {
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () =>{
+        setShow(false);
+        setVideoDetails({
+            caption: '',
+            thumbnailUrl: '',
+            embeddedLink: ''
+        })
+    }
     const handleShow = () => setShow(true);
-
+    const [videoDetails, setVideoDetails] = useState({
+        caption: '',
+        thumbnailUrl: '',
+        embeddedLink: ''
+    })
+    const handleUpload = async () => {
+        console.log('Uploaded Video Details...')
+        console.log(videoDetails)
+        const {caption,thumbnailUrl,embeddedLink}=videoDetails
+        if(!caption||!thumbnailUrl||!embeddedLink){
+            alert("Please Fill The Form Completely!")
+        }
+        else{
+            await uploadVideo(videoDetails)
+        }
+    }
+    const setEmbeddedLink = (data) => {
+        //set embedded link
+        const link = `https://www.youtube.com/embed/${data.slice(-11)}`
+        console.log(link)
+        setVideoDetails({...videoDetails,embeddedLink:link})
+    }
     return (
         <>
             <div className='d-flex align-items-center'>
@@ -26,13 +55,13 @@ function Add() {
                     <p className='textStyle fw-bolder'>PLEASE FILL THE FORM</p>
                     <Form className='border border-secondary p-3 rounded'>
                         <Form.Group className='mb-3 mt-3'>
-                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Title" />
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Title" onChange={(e) => setVideoDetails({ ...videoDetails, caption: e.target.value })} />
                         </Form.Group>
                         <Form.Group className='mb-3'>
-                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Thumbnail URL" />
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Thumbnail URL" onChange={(e) => setVideoDetails({ ...videoDetails, thumbnailUrl: e.target.value })} />
                         </Form.Group>
                         <Form.Group className='mb-3'>
-                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Link" />
+                            <Form.Control className='bg-dark text-light' type="text" placeholder="Enter Video Link" onChange={(e) => setEmbeddedLink(e.target.value)} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -40,7 +69,7 @@ function Add() {
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
                     </Button>
-                    <Button variant="warning">Upload</Button>
+                    <Button variant="warning" onClick={handleUpload}>Upload</Button>
                 </Modal.Footer>
             </Modal>
         </>
