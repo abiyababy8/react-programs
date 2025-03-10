@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap'
 import { uploadVideo } from '../services/allApi';
 function Add() {
     const [show, setShow] = useState(false);
-    const handleClose = () =>{
+    const handleClose = () => {
         setShow(false);
         setVideoDetails({
             caption: '',
@@ -20,19 +20,28 @@ function Add() {
     const handleUpload = async () => {
         console.log('Uploaded Video Details...')
         console.log(videoDetails)
-        const {caption,thumbnailUrl,embeddedLink}=videoDetails
-        if(!caption||!thumbnailUrl||!embeddedLink){
+        const { caption, thumbnailUrl, embeddedLink } = videoDetails
+        if (!caption || !thumbnailUrl || !embeddedLink) {
             alert("Please Fill The Form Completely!")
         }
-        else{
-            await uploadVideo(videoDetails)
+        else {
+            const result = await uploadVideo(videoDetails)
+            console.log('Result:')
+            console.log(result)
+            if (result.status == 201) {
+                alert('Successfully Uploaded')
+                handleClose()
+            }
+            else {
+                alert('Something went wrong')
+            }
         }
     }
     const setEmbeddedLink = (data) => {
         //set embedded link
         const link = `https://www.youtube.com/embed/${data.slice(-11)}`
         console.log(link)
-        setVideoDetails({...videoDetails,embeddedLink:link})
+        setVideoDetails({ ...videoDetails, embeddedLink: link })
     }
     return (
         <>
