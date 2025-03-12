@@ -1,7 +1,8 @@
 import { React, useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { uploadVideo } from '../services/allApi';
-function Add() {
+import { toast } from 'react-toastify'
+function Add({setUploadVideoStatus}) {
     const [show, setShow] = useState(false);
     const handleClose = () => {
         setShow(false);
@@ -22,18 +23,19 @@ function Add() {
         console.log(videoDetails)
         const { caption, thumbnailUrl, embeddedLink } = videoDetails
         if (!caption || !thumbnailUrl || !embeddedLink) {
-            alert("Please Fill The Form Completely!")
+            toast.warning("Please Fill The Form Completely!")
         }
         else {
             const result = await uploadVideo(videoDetails)
             console.log('Result:')
             console.log(result)
             if (result.status == 201) {
-                alert('Successfully Uploaded')
+                setUploadVideoStatus(result)
+                toast.success('Successfully Uploaded')
                 handleClose()
             }
             else {
-                alert('Something went wrong')
+                toast.error('Something went wrong')
             }
         }
     }
@@ -81,6 +83,7 @@ function Add() {
                     <Button variant="warning" onClick={handleUpload}>Upload</Button>
                 </Modal.Footer>
             </Modal>
+
         </>
     )
 }
