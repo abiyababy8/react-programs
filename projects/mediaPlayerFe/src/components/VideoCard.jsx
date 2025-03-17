@@ -1,18 +1,36 @@
 import { React, useState } from 'react'
 import { Card, Button, Modal } from 'react-bootstrap'
-import { deleteVideo } from '../services/allApi';
+import { addToHistory, deleteVideo } from '../services/allApi';
 import { toast } from 'react-toastify';
-function VideoCard({ displayVideo }) {
+function VideoCard({ displayVideo, setDeleteVideoStatus }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = async() => {
+        setShow(true);
+        const { caption, embeddedLink } = displayVideo
+        const today = new Date()
+        const year = today.getFullYear()
+        const month = today.getMonth() + 1
+        const day = today.getDate()
+        const hour = String(today.getHours()).padStart(2, '0')
+        const minute = String(today.getMinutes()).padStart(2, '0')
+        const timeValue = day  + '-'  + month  + '-' + year + ' ' + hour + ':' +  minute
+        console.log(timeValue)
+        const history = {
+            caption,
+            embeddedLink,
+            timeStamp: timeValue
+        }
+        await addToHistory(history)
+    }
     const removeVideo = async (id) => {
         const response = await deleteVideo(id)
-        console.log('Delete REsponse:')
+        console.log('Delete Response:')
         console.log(response)
         if (response.status == 200) {
             toast.success(`${displayVideo.caption} Successfully Deleted`)
+            setDeleteVideoStatus(response)
         }
         else {
             toast.error('Something Wrong')

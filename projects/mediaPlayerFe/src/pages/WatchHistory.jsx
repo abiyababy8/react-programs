@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-
+import { deleteWatchHistory, getHistory } from '../services/allApi'
 function WatchHistory() {
+  const [allHistory, setAllHistory] = useState([])
+  const getAllHistory = async () => {
+    const response = await getHistory()
+    console.log(response)
+    const { data } = response
+    setAllHistory(data)
+  }
+  useEffect(() => {
+    getAllHistory()
+  }, [])
+const deleteHistory=async(id)=>{
+  await deleteWatchHistory(id)
+  getAllHistory()
+}
   return (
     <>
       <div className="container mt-5 d-flex justify-content-between">
@@ -20,13 +34,20 @@ function WatchHistory() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dhurooha Mandhahaasame</td>
-            <td>www.youtube.com/dhurooha_mandhahaasame</td>
-            <td>2025-03-05 12:43</td>
-            <td><Button variant="danger"><i class="fa-solid fa-trash"></i></Button></td>
-          </tr>
+          {
+            allHistory.length > 0 ?
+              allHistory.map((item) => (
+                <tr>
+                  <td>{item.id}</td>
+                  <td>{item.caption}</td>
+                  <td>{item.embeddedLink}</td>
+                  <td>{item.timeStamp}</td>
+                  <td><Button variant="danger" onClick={()=>deleteHistory(item.id)}><i class="fa-solid fa-trash"></i></Button></td>
+                </tr>
+              )):
+              <p className='m-5 text-danger'>NO HISTORY FOUND</p>
+          }
+
         </tbody>
       </table>
     </>
