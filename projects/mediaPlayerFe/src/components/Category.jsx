@@ -1,10 +1,10 @@
 import { React, useEffect, useState } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { toast } from 'react-toastify';
-import { addCategory, getAllCategories } from '../services/allApi'
+import { addCategory, removeCategory, getAllCategories, getVideosById, updateCategory } from '../services/allApi'
 function Category() {
   const [show, setShow] = useState(false);
-  const [categories,setCategories]=useState([])
+  const [categories, setCategories] = useState([])
   const handleClose = () => {
     setShow(false);
     setCategoryName("")
@@ -25,6 +25,7 @@ function Category() {
       console.log(response)
       if (response.status === 201) {
         toast.success(`${categoryName} is successfully saved!`)
+        getCategories()
       }
       handleClose()
     }
@@ -33,16 +34,43 @@ function Category() {
     const response = await getAllCategories()
     console.log('Categories:')
     console.log(response)
-    const {data}=response
+    const { data } = response
     setCategories(data)
   }
   useEffect(() => {
     getCategories()
   }, [])
+  const deleteCategory = async (id) => {
+    // alert(id)
+    const res = await removeCategory(id)
+    getCategories()
+  }
+  const dragOver=(e)=>{
+    e.preventDefault()
+    console.log('inside dragover')
+  }
+  const videoDropped=async(e,id)=>{
+    console.log(`dropped inside category with id ${id}`)
+
+    const vId=e.dataTransfer.getData('videoId')
+    console.log(`video with id ${vId} is dropped in category with id ${id}`)
+
+    const result= await getVideosById(vId)
+    console.log(result)
+
+    const {data}=result
+
+    let selectedCategories=categories?.find((item=>item.id==id))
+    console.log("selected category:",selectedCategories)
+
+    selectedCategories.allVideos.push(data)
+    console.log('final Category:',selectedCategories)
+  
+  }
   return (
     <>
       <div>
-        <button className='btn btn-warning' onClick={handleShow}>ADD NEW CATEGORY</button>
+        <button className='btn btn-warning mb-3 ms-5' onClick={handleShow}>ADD NEW CATEGORY</button>
       </div><Modal
         show={show}
         onHide={handleClose}
@@ -68,7 +96,16 @@ function Category() {
           <Button variant="warning" onClick={handleAddCategory}>Add</Button>
         </Modal.Footer>
       </Modal>
-
+      {
+        categories?.map((item) => (
+          <div className="border border-secondary rounded p-3 mt-2 m-5" droppable onDragOver={(e)=>dragOver(e)} onDrop={(e)=>videoDropped(e,item.id)}>
+            <div className="d-flex justify-content-between align-items-center">
+              <h6>{item.categoryName}</h6>
+              <button className='btn btn-danger' onClick={(e) => deleteCategory(item.id)}><i className="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+        ))
+      }
     </>
   )
 }

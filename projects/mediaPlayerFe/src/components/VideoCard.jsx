@@ -36,9 +36,13 @@ function VideoCard({ displayVideo, setDeleteVideoStatus }) {
             toast.error('Something Wrong')
         }
     }
+    const dragStarted=(e,id)=>{
+        console.log(`video with id ${id} started dragging`)
+        e.dataTransfer.setData('videoId',id)
+    }
     return (
         <>
-            <Card style={{ width: '14rem', height: '14rem' }} className='text-dark'>
+            <Card style={{ width: '14rem', height: '14rem',margin:'0.5rem'}} className='text-dark' draggable onDragStart={(e)=>dragStarted(e,displayVideo.id)}>
                 <Card.Img variant="top" src={displayVideo.thumbnailUrl} height={'150px'} onClick={handleShow} />
                 <Card.Body>
                     <div className='d-flex justify-content-between'>
