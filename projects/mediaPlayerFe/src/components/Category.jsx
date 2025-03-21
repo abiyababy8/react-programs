@@ -1,7 +1,9 @@
 import { React, useEffect, useState } from 'react'
+import VideoCard from './VideoCard'
 import { Modal, Button, Form } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import { addCategory, removeCategory, getAllCategories, getVideosById, updateCategory } from '../services/allApi'
+
 function Category() {
   const [show, setShow] = useState(false);
   const [categories, setCategories] = useState([])
@@ -45,27 +47,32 @@ function Category() {
     const res = await removeCategory(id)
     getCategories()
   }
-  const dragOver=(e)=>{
+  const dragOver = (e) => {
     e.preventDefault()
     console.log('inside dragover')
   }
-  const videoDropped=async(e,id)=>{
+  const videoDropped = async (e, id) => {
     console.log(`dropped inside category with id ${id}`)
 
-    const vId=e.dataTransfer.getData('videoId')
+    const vId = e.dataTransfer.getData('videoId')
     console.log(`video with id ${vId} is dropped in category with id ${id}`)
 
-    const result= await getVideosById(vId)
+    const result = await getVideosById(vId)
     console.log(result)
 
-    const {data}=result
+    const { data } = result
 
-    let selectedCategories=categories?.find((item=>item.id==id))
-    console.log("selected category:",selectedCategories)
+    let selectedCategories = categories?.find((item => item.id == id))
+    console.log("selected category:", selectedCategories)
 
     selectedCategories.allVideos.push(data)
-    console.log('final Category:',selectedCategories)
-  
+    console.log('final Category:', selectedCategories)
+
+    const result_new = await updateCategory(id, selectedCategories)
+    console.log(result_new)
+    
+    getCategories()
+
   }
   return (
     <>
@@ -98,11 +105,20 @@ function Category() {
       </Modal>
       {
         categories?.map((item) => (
-          <div className="border border-secondary rounded p-3 mt-2 m-5" droppable onDragOver={(e)=>dragOver(e)} onDrop={(e)=>videoDropped(e,item.id)}>
+          <div className="border border-secondary rounded p-3 mt-2 m-5" droppable onDragOver={(e) => dragOver(e)} onDrop={(e) => videoDropped(e, item.id)}>
             <div className="d-flex justify-content-between align-items-center">
               <h6>{item.categoryName}</h6>
               <button className='btn btn-danger' onClick={(e) => deleteCategory(item.id)}><i className="fa-solid fa-trash"></i></button>
             </div>
+            {
+              item.allVideos?.length > 0 ?
+                item.allVideos.map((video) => (
+                  <div className=''>
+                    <img src={video.thumbnailUrl} alt="" height={'100px'} width={'160px'} className='mt-2'/>
+                  </div>
+                )) :
+                <h3>No Video Found</h3>
+            }
           </div>
         ))
       }

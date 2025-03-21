@@ -52,18 +52,74 @@
   "categories": [
     {
       "categoryName": "MALAYALAM",
-      "allVideos": [],
-      "id": 1
+      "allVideos": [
+        {
+          "caption": "Ashubha Mangalakaari",
+          "thumbnailUrl": "https://i.ytimg.com/vi/81jbVOvOUTE/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=&rs=AOn4CLBySoZ41C2J6YL8lJNBgFvbsiqF0Q",
+          "embeddedLink": "https://www.youtube.com/embed/81jbVOvOUTE",
+          "id": 5
+        },
+        {
+          "caption": "Aattuthottil",
+          "thumbnailUrl": "https://i.ytimg.com/vi/PcsvpfKPOMQ/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLB-okUx3EWxE7Usei3WG1AFpkQOmQ",
+          "embeddedLink": "https://www.youtube.com/embed/PcsvpfKPOMQ",
+          "id": 9
+        },
+        {
+          "caption": "Ole Melody",
+          "thumbnailUrl": "https://i.ytimg.com/vi/Bm48lOWNpBI/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAhepgjx6Vayv1J3-13q5B_NcIydA",
+          "embeddedLink": "https://www.youtube.com/embed/Bm48lOWNpBI",
+          "id": 10
+        }
+      ],
+      "id": 4
     },
     {
       "categoryName": "TAMIL",
-      "allVideos": [],
-      "id": 2
+      "allVideos": [
+        {
+          "caption": "Golden Sparrow",
+          "thumbnailUrl": "https://i.ytimg.com/vi/1seR_ckLXz4/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDLMNXZksKXmfvE1DXLWLQRZc2vIQ",
+          "embeddedLink": "https://www.youtube.com/embed/1seR_ckLXz4",
+          "id": 1
+        },
+        {
+          "caption": "Kadhaippoma",
+          "thumbnailUrl": "https://i.ytimg.com/vi/DScFlfN9vDk/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAJyKn03TdcoJ2w7h__YM9mncp_FA",
+          "embeddedLink": "https://www.youtube.com/embed/DScFlfN9vDk",
+          "id": 3
+        }
+      ],
+      "id": 5
+    },
+    {
+      "categoryName": "HINDI",
+      "allVideos": [
+        {
+          "caption": "Masakali",
+          "thumbnailUrl": "https://i.ytimg.com/vi/SS3lIQdKP-A/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAYWGfC_KYM5rRSOEFJZgOWhYSLpw",
+          "embeddedLink": "https://www.youtube.com/embed/SS3lIQdKP-A",
+          "id": 8
+        },
+        {
+          "caption": "Piyu Bole",
+          "thumbnailUrl": "https://i.ytimg.com/vi/ZAkr0KFFLLs/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBnrG2SuMum7mKI1W2u1L2kys2Z5A",
+          "embeddedLink": "https://www.youtube.com/embed/ZAkr0KFFLLs",
+          "id": 7
+        },
+        {
+          "caption": "Ghar More Pardesiyaan",
+          "thumbnailUrl": "https://i.ytimg.com/vi/ntC3sO-VeJY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDscCpNgR-CjqraE8YWXE9gzPvSOw",
+          "embeddedLink": "https://www.youtube.com/embed/Fdk3brbEkPw",
+          "id": 6
+        }
+      ],
+      "id": 6
     },
     {
       "categoryName": "HINDI",
       "allVideos": [],
-      "id": 3
+      "id": 7
     }
   ],
   "history": [
@@ -138,6 +194,36 @@
       "embeddedLink": "https://www.youtube.com/embed/Fdk3brbEkPw",
       "timeStamp": "18-3-2025 12:32",
       "id": 12
+    },
+    {
+      "caption": "Golden Sparrow",
+      "embeddedLink": "https://www.youtube.com/embed/1seR_ckLXz4",
+      "timeStamp": "19-3-2025 11:53",
+      "id": 13
+    },
+    {
+      "caption": "Ashubha Mangalakaari",
+      "embeddedLink": "https://www.youtube.com/embed/81jbVOvOUTE",
+      "timeStamp": "19-3-2025 11:53",
+      "id": 14
+    },
+    {
+      "caption": "Kadhaippoma",
+      "embeddedLink": "https://www.youtube.com/embed/DScFlfN9vDk",
+      "timeStamp": "19-3-2025 11:53",
+      "id": 15
+    },
+    {
+      "caption": "Ghar More Pardesiyaan",
+      "embeddedLink": "https://www.youtube.com/embed/Fdk3brbEkPw",
+      "timeStamp": "19-3-2025 11:53",
+      "id": 16
+    },
+    {
+      "caption": "Ole Melody",
+      "embeddedLink": "https://www.youtube.com/embed/Bm48lOWNpBI",
+      "timeStamp": "19-3-2025 11:53",
+      "id": 17
     }
   ]
 }
