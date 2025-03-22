@@ -7,29 +7,19 @@ function TaskForm({ addTask }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!title || !dueTime) return;
-        addTask({ title, dueTime, completed: false, status: "active" });
+        addTask({ title, dueTime, completed: false, status: "pending" });
         setTitle("");
         setDueTime("");
     };
 
     return (
-        <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6">
-                        <form onSubmit={handleSubmit} className="mb-3">
-                            <div className="d-flex">
-                                <input type="text" className="form-control ms-5" placeholder="Task Title" value={title} onChange={(e) => setTitle(e.target.value)} style={{ width: '400px' }} />
-                                <input type="datetime-local" className="form-control ms-3 me-5" value={dueTime} onChange={(e) => setDueTime(e.target.value)} style={{ width: '300px' }} />
-                                <button className="btn btn-success" type="submit" style={{ width: '100px' }}>Add</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
+        <form onSubmit={handleSubmit} className="mb-3">
+            <div className="d-flex">
+                <input type="text" className="form-control ms-5" placeholder="Task Title" value={title} onChange={(e) => setTitle(e.target.value)} style={{ width: '400px' }} />
+                <input type="datetime-local" className="form-control ms-3 me-5" value={dueTime} onChange={(e) => setDueTime(e.target.value)} style={{ width: '300px' }} />
+                <button className="btn btn-success" type="submit" style={{ width: '100px' }}>Add</button>
             </div>
-        </>
+        </form>
     );
 }
 

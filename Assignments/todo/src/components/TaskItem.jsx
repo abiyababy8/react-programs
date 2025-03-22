@@ -1,58 +1,45 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function TaskItem({ task, deleteTask, toggleComplete, updateTask }) {
+const TaskItem = ({ task, toggleComplete, deleteTask, editTask }) => {
     const [isEditing, setIsEditing] = useState(false);
-    const [newTitle, setNewTitle] = useState(task.title);
+    const [editedTitle, setEditedTitle] = useState(task.title);
+    const [editedDueTime, setEditedDueTime] = useState(task.dueTime);
 
-    const handleUpdate = () => {
-        if (newTitle.trim() === "") return;
-        updateTask(task.id, newTitle);
+   const handleToggle = () => {
+    toggleComplete(task); // ✅ Pass the entire task
+};
+
+
+    const handleSave = () => {
+        editTask(task.id, editedTitle, editedDueTime);
         setIsEditing(false);
     };
 
     return (
-        <>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6 rounded p-1 mt-1">
-                        <div className={`d-flex justify-content-between align-items-center p-2 border rounded mb-2 ${task.completed ? "bg-success text-white" : "bg-light"}`}>
-                            <div className="d-flex align-items-center">
-                                <input type="checkbox" checked={task.completed} onChange={() => toggleComplete(task.id, !task.completed)} className="form-check-input me-2" />
-
-                                {isEditing ? (
-                                    <input
-                                        type="text"
-                                        className="form-control me-2"
-                                        value={newTitle}
-                                        onChange={(e) => setNewTitle(e.target.value)}
-                                        onKeyDown={(e) => e.key === "Enter" && handleUpdate()}
-                                    />
-                                ) : (
-                                    <span className={`ms-2 ${task.completed ? "text-decoration-line-through" : ""}`}>{task.title} ({task.status})</span>
-                                )}
-                            </div>
-
-                            <div>
-                                {isEditing ? (
-                                    <>
-                                        <button className="btn btn-success btn-sm me-2" onClick={handleUpdate}>Save</button>
-                                        <button className="btn btn-secondary btn-sm me-2" onClick={() => setIsEditing(false)}>Cancel</button>
-                                    </>
-                                ) : (
-                                    <button className="btn btn-warning btn-sm me-2" onClick={() => setIsEditing(true)}>Edit</button>
-                                )}
-
-                                <button className="btn btn-danger btn-sm" onClick={() => deleteTask(task.id)}>Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
+        <li className="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <input type="checkbox" checked={task.completed} onChange={handleToggle} />
+                {isEditing ? (
+                    <>
+                        <input type="text" value={editedTitle} onChange={(e) => setEditedTitle(e.target.value)} />
+                        <input type="datetime-local" value={editedDueTime} onChange={(e) => setEditedDueTime(e.target.value)} />
+                        <button className="btn btn-sm btn-success ms-2" onClick={handleSave}>Save</button>
+                    </>
+                ) : (
+                    <span className={`ms-2 ${task.completed ? "text-decoration-line-through" : ""}`}>
+                        {task.title} (Due: {new Date(task.dueTime).toLocaleString()}) - {task.status}
+                    </span>
+                )}
             </div>
-        </>
+            <div>
+                {!isEditing && <button className="btn btn-warning btn-sm me-2" onClick={() => setIsEditing(true)}>Edit</button>}
+                <button className="btn btn-danger btn-sm" onClick={() => deleteTask(task.id)}>Delete</button>
+            </div>
+            <ToastContainer />
+        </li>
     );
-}
+};
 
 export default TaskItem;
-
