@@ -3,15 +3,17 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import Cart from "./pages/Cart"
 import WishList from "./pages/WishList"
+import { Route, Routes } from "react-router-dom"
 function App() {
   return (
     <>
-     <Header/>
-     <h3>Ekart</h3>
-     <Home/>
-     <Cart/>
-     <WishList/>
-     <Footer/>
+      <Header />
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/cart"} element={<Cart />} />
+        <Route path={"/wishlist"} element={<WishList />} />
+      </Routes>
+      <Footer />
     </>
   )
 }

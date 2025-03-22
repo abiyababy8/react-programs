@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="container py-4">
       <button className="btn btn-outline-primary mb-3" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-        {theme === "light" ? "Dark Mode 🌙" : "Light Mode ☀️"}
+        {theme === "light" ? "🌙" : "☀️"}
       </button>
       <h1 className="text-center">To-Do List</h1>
       <TaskList />
