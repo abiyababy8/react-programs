@@ -22,7 +22,7 @@ function Home() {
                     <Card.Title>{item.title.slice(0, 15)}...</Card.Title>
                     <Card.Text>
                       {item.description.slice(0, 50)}...
-                      <p className='fw-bolder'>Price: ₹{item.price}</p>
+                      <p className='fw-bolder'>Price: ${item.price}</p>
                     </Card.Text>
                     <div className='d-flex align-items-center justify-content-between'>
                       <Button variant="outline-danger" onClick={() => dispatch(addToWishlist(item))}><i className="fa-solid fa-heart"></i></Button>
