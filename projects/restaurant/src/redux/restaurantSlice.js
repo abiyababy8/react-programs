@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios"
 
 const restaurantSlice = createSlice({
@@ -10,6 +11,7 @@ const restaurantSlice = createSlice({
     initialState: {
         loading: false, // pending state
         allRestaurant: [], // fulfilled state
+        searchRestaurants: [],
         error: "" // rejected state
     },
     // in normal case we use reducers to define actions, but in the case of async fns we have to place actions inside extraReducers
@@ -21,6 +23,7 @@ const restaurantSlice = createSlice({
         builder.addCase(fetchRestaurant.fulfilled, (state, action) => {
             state.loading = false;
             state.allRestaurant = action.payload;
+            state.searchRestaurants = action.payload;
             state.error = ""
         })
         builder.addCase(fetchRestaurant.rejected, (state, action) => {
@@ -28,12 +31,19 @@ const restaurantSlice = createSlice({
             state.allRestaurant = "";
             state.error = action.error.message;
         })
+    },
+    reducers: {
+        searchRestaurant: (state, action) => {
+            state.allRestaurant.restaurants = state.searchRestaurants.restaurants.filter(item => item.neighborhood.toLowerCase().includes(action.payload))
+        }
     }
 })
 
 // api calls are implemented using thunk
-const fetchRestaurant = createAsyncThunk('restaurantList/fetchRestaurant', () => {
+export const fetchRestaurant = createAsyncThunk('restaurantList/fetchRestaurant', () => {
     const result = axios.get('./restaurant.json').then(response => response.data)
     console.log(result)
     return result;
 })
+export default restaurantSlice.reducer;
+export const { searchRestaurant } = restaurantSlice.actions;

@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/restaurant_view" element={<RestView />} />
+        <Route path="/restaurant_view/:id" element={<RestView />} />
       </Routes>
       <Footer />
     </>

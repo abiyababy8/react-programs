@@ -1,29 +1,36 @@
 import React from 'react'
 import { Row, Col, ListGroup, Modal, Collapse } from 'react-bootstrap'
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 function RestView() {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [open, setOpen] = useState(false);
+    // useParams hook is used to get data passed url
+    const { id } = useParams()
+    console.log("Url data:", id)
+    const restaurantData = useSelector(state => state.restaurantStore.allRestaurant.restaurants)
+    const selectedRestaurant = restaurantData.find(item => item.id == id)
+    console.log("selected restaurant:", selectedRestaurant)
     return (
         <>
             <Row>
                 <Col md={1} lg={1}>
                 </Col>
                 <Col md={3} lg={3}>
-                    <img height={'100%'} width={'100%'} src="https://plus.unsplash.com/premium_photo-1661883237884-263e8de8869b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                    <img height={'100%'} width={'100%'} src={selectedRestaurant?.photograph} alt="" />
                 </Col>
                 <Col md={7} lg={7}>
                     <hr />
                     <h5 className='text-center'><span className='text-warning'>RESTAURANT </span>DETAILS</h5>
                     <hr />
                     <ListGroup>
-                        <ListGroup.Item><h5 className='text-center'>PALAARAM</h5></ListGroup.Item>
-                        <ListGroup.Item>Neighbourhood:</ListGroup.Item>
-                        <ListGroup.Item>Address:</ListGroup.Item>
-                        <ListGroup.Item>Cuisine</ListGroup.Item>
+                        <ListGroup.Item><h5 className='text-center'>{selectedRestaurant?.name}</h5></ListGroup.Item>
+                        <ListGroup.Item>Neighbourhood: {selectedRestaurant?.neighborhood}</ListGroup.Item>
+                        <ListGroup.Item>Address: {selectedRestaurant?.address}</ListGroup.Item>
+                        <ListGroup.Item>Cuisine: {selectedRestaurant?.cuisine_type}</ListGroup.Item>
                         <ListGroup.Item className='text-center p-3'>
                             <button className='btn btn-warning' onClick={handleShow}>Operating Hours</button>
                             <Modal show={show} onHide={handleClose}>
@@ -32,13 +39,13 @@ function RestView() {
                                 </Modal.Header>
                                 <Modal.Body>
                                     <ListGroup>
-                                        <ListGroup.Item>Sunday:</ListGroup.Item>
-                                        <ListGroup.Item>Monday:</ListGroup.Item>
-                                        <ListGroup.Item>Tuesday:</ListGroup.Item>
-                                        <ListGroup.Item>Wednesday:</ListGroup.Item>
-                                        <ListGroup.Item>Thursday:</ListGroup.Item>
-                                        <ListGroup.Item>Friday:</ListGroup.Item>
-                                        <ListGroup.Item>Saturday:</ListGroup.Item>
+                                        <ListGroup.Item>Sunday: {selectedRestaurant?.operating_hours.Sunday}</ListGroup.Item>
+                                        <ListGroup.Item>Monday: {selectedRestaurant?.operating_hours.Monday}</ListGroup.Item>
+                                        <ListGroup.Item>Tuesday: {selectedRestaurant?.operating_hours.Tuesday}</ListGroup.Item>
+                                        <ListGroup.Item>Wednesday: {selectedRestaurant?.operating_hours.Wednesday}</ListGroup.Item>
+                                        <ListGroup.Item>Thursday: {selectedRestaurant?.operating_hours.Thursday}</ListGroup.Item>
+                                        <ListGroup.Item>Friday: {selectedRestaurant?.operating_hours.Friday}</ListGroup.Item>
+                                        <ListGroup.Item>Saturday: {selectedRestaurant?.operating_hours.Saturday}</ListGroup.Item>
                                     </ListGroup>
                                 </Modal.Body>
                             </Modal>
@@ -56,12 +63,19 @@ function RestView() {
                 <Col md={7} lg={7}>
                     <Collapse in={open}>
                         <div>
-                            <hr />
-                            <div className='mt-2'>
-                                <h6>Name & Date: Steve, October 26,2024</h6>
-                                <p>Rating: 4</p>
-                                <p>Review: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam tempora iste iusto reiciendis nisi, placeat molestias corporis natus architecto cupiditate! Rerum quae ducimus vel iste omnis consectetur cum quidem odio?</p>
-                            </div>
+                            {
+                                selectedRestaurant?.reviews?.length > 0 ?
+                                    selectedRestaurant?.reviews?.map(item => (
+
+                                        <div className='mt-2'>
+                                            <hr />
+                                            <h6>Name & Date: {item.name}, {item.date}</h6>
+                                            <p>Rating: {item.rating}</p>
+                                            <p>Review: {item.comments}</p>
+                                        </div>
+                                    )) :
+                                    <p>NO REVIEWS FOUND</p>
+                            }
                         </div>
                     </Collapse>
                 </Col>
